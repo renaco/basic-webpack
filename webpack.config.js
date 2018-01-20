@@ -23,7 +23,11 @@ const config = {
   plugins: [
     new CheckerPlugin()
   ],
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    watchContentBase: true
+  }
 }
 
 module.exports = config;
