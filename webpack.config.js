@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const CircularDendency = require('circular-dependency-plugin');
+const Uglify = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 const config = {
@@ -21,7 +23,14 @@ const config = {
     extensions: ['.ts', '.js']
   },
   plugins: [
-    new CheckerPlugin()
+    new CheckerPlugin(),
+    new CircularDendency({
+      exclude: /a\.js|node_modules/,
+      failOnError: true
+    }),
+    new Uglify({
+      sourceMap: true
+    })
   ],
   devtool: 'source-map',
   devServer: {
