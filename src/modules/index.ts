@@ -1,4 +1,5 @@
 import { DomClass } from './dom';
+import { Sms } from './sms';
 
 export class myClass {
 

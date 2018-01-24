@@ -14,10 +14,10 @@ let plugins = [
 
 console.log('nodeenv', process.env.NODE_ENV);
 
-if(process.env.NODE_ENV){
+if(!process.env.NODE_ENV){
   console.log('es produccion');
   plugins.push(new Uglify({
-    sourceMap: true
+    sourceMap: false
   }));
 }
 
