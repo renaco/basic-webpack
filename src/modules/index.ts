@@ -1,6 +1,15 @@
 import { DomClass } from './dom';
 
-export function myFunction() {
-  // console.log('from console');
-  return false;
+export class myClass {
+
+  myVarIntoClass: string;
+
+  constructor(
+  ) {
+    this.myVarIntoClass = 'some';
+  }
+
+  myFunction() {
+    console.log('from console', this.myVarIntoClass);
+  }
 }

@@ -4,16 +4,33 @@ const CircularDendency = require('circular-dependency-plugin');
 const Uglify = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
+let plugins = [
+  new CheckerPlugin(),
+  new CircularDendency({
+      exclude: /a\.js|node_modules/,
+      failOnError: true
+    })
+  ];
+
+console.log('nodeenv', process.env.NODE_ENV);
+
+if(process.env.NODE_ENV){
+  console.log('es produccion');
+  plugins.push(new Uglify({
+    sourceMap: true
+  }));
+}
+
 const config = {
   entry: './src/index.ts',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         exclude: /(node_modules)/
       }
-    ],
+    ]
   },
   output: {
     filename: 'bundle.js',
@@ -22,16 +39,7 @@ const config = {
   resolve: {
     extensions: ['.ts', '.js']
   },
-  plugins: [
-    new CheckerPlugin(),
-    new CircularDendency({
-      exclude: /a\.js|node_modules/,
-      failOnError: true
-    }),
-    new Uglify({
-      sourceMap: true
-    })
-  ],
+  plugins,
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
