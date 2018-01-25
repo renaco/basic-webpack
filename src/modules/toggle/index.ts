@@ -1,11 +1,12 @@
 export function toggleElement(el) {
-  console.log('el from togsssgle', el);
-  // console.table(el);
-  /*
-  if (el.classList) {
-    el.classList.toggle('is_hide');
-  } else {
-    let classes = el.className.split(' ');
+  console.clear();
+  let getElement = el;
+  console.log('el from togsssgle', el, getElement.classList);
+  if (getElement.classList) {
+    getElement.classList.toggle('is_hide');
+  } 
+  else {
+    let classes = getElement.className.split(' ');
     let exstingIndex = this.classes.indexOf('is_hide');
 
     if (this.existingIndex >= 0) {
@@ -13,7 +14,6 @@ export function toggleElement(el) {
     } else {
       this.classes.push('is_hide');
     }
-    el.className = this.classes.join(' ');
+    getElement.className = this.classes.join(' ');
   }
-  */
 }
