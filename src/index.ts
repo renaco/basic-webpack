@@ -1,9 +1,9 @@
-import * as Index from './modules/index';
-// import { Sms } from './modules/sms';
-let buttonSMS = document.querySelectorAll('#buttonSMS')[0];
+import * as Email from './modules/email';
+import * as Sms from './modules/sms';
+import * as Download from './modules/download-pdf';
 
-buttonSMS.addEventListener('click', (e) => {
-  console.log('sss', buttonSMS.parentElement.parentElement.parentElement.parentElement.parentElement);
-});
+Download.downloadPDF();
+Email.sendEmail();
+Sms.sendSMS();
 
 console.log('load js transpile');

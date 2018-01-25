@@ -1,13 +1,12 @@
-export class Sms {
-  message: string;
-  constructor() {
-    this.message = 'this is sms';
-  }
-  loadClass() {
-    let buttonSMS = document.querySelectorAll('#buttonSMS')[0];
+import * as Sms from './sms';
+import * as Toggle from './toggle';
 
-    buttonSMS.addEventListener('click', (e) => {
-      console.log(this.message, buttonSMS.parentElement.parentElement.parentElement.parentElement.parentElement);
-    });
-  }
+export function sendSMS() {
+  let buttonSMS = document.querySelectorAll('#buttonSMS')[0];
+
+  buttonSMS.addEventListener('click', (e) => {
+    console.log(buttonSMS.parentElement.parentElement.parentElement.parentElement.parentElement);
+    Toggle.toggleElement(e);
+  });
+
 }
