@@ -1,5 +1,6 @@
 import * as Sms from './sms';
 import * as Toggle from './toggle';
+import log from './global/log';
 
 export function sendSMS() {
   let buttonSMS = document.querySelectorAll('#buttonSMS')[0];
@@ -10,7 +11,11 @@ export function sendSMS() {
     Toggle.toggleElement(e.srcElement.previousElementSibling);
   });
 
-  // function validateSMS(event) {
-  //   console.log(event);
-  // }
+  document.body.addEventListener('click', (event) => {
+    console.log('clicked', event.target.classList.value);
+    // if (event.target !== (event.target.id)) {
+
+    // }
+  })
+
 }
