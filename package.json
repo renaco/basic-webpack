@@ -22,11 +22,11 @@
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "circular-dependency-plugin": "^4.4.0",
-    "jslint": "^0.11.0",
+    "jslint": "^0.12.0",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0",
+    "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.0"
   }
 }
