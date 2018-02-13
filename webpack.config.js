@@ -29,6 +29,13 @@ const config = {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         exclude: /(node_modules)/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader/url" },
+          { loader: "file-loader" }
+        ]
       }
     ]
   },

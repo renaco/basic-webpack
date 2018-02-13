@@ -1,5 +1,7 @@
 import * as Index from './modules/index';
 import { DomClass } from './modules/dom';
+// import url from 'main.css';
+
 let myTitle: string = 'this is my title';
 let myButton = document.querySelectorAll('#myButton')[0];
 let myBody = document.body;
@@ -10,5 +12,3 @@ myButton.addEventListener('click', (e) => {
   console.log('DomClass', typeof DomClass);
   DomClass();
 });
-
-
