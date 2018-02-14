@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "dev": "webpack-dev-server --progress",
     "build:prod": "NODE_ENV=production webpack",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,8 +24,11 @@
     "awesome-typescript-loader": "^3.4.1",
     "circular-dependency-plugin": "^4.4.0",
     "css-loader": "^0.28.9",
-    "jslint": "^0.11.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "1.1.6",
+    "jslint": "^0.12.0",
     "source-map-loader": "^0.2.3",
+    "style-loader": "^0.20.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "typescript": "^2.6.2",
