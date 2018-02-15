@@ -1,20 +1,21 @@
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const CircularDendency = require('circular-dependency-plugin');
+const ExtraTextPlugin = require('extract-text-webpack-plugin');
 const Uglify = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
-let plugins = [
+const plugins = [
   new CheckerPlugin(),
   new CircularDendency({
-      exclude: /a\.js|node_modules/,
+      exclude: /a\.ts|node_modules/,
       failOnError: true
     })
   ];
 
 console.log('nodeenv', process.env.NODE_ENV);
 
-if(process.env.NODE_ENV){
+if (process.env.NODE_ENV) {
   console.log('es produccion');
   plugins.push(new Uglify({
     sourceMap: true
@@ -22,24 +23,49 @@ if(process.env.NODE_ENV){
 }
 
 const config = {
-  entry: './src/index.ts',
+  entry: ['./src/index.ts', './src/styles/main.styl'],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         loader: 'awesome-typescript-loader',
         exclude: /(node_modules)/
+      },
+      {
+        test: /\.styl/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "stylus-loader"
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ExtraTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            "style-loader",
+            "css-loader",
+            "stylus-loader"
+          ]
+        })
       }
     ]
   },
   output: {
-    filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
-  plugins,
+  plugins: [
+    new ExtraTextPlugin({
+      filename: 'main.styl',
+      disable: false,
+      allChunks: true
+    })
+  ],
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
