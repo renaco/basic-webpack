@@ -1,15 +1,212 @@
-.app-body
-    background peru
-    color white
-    font-family Arial, Helvetica, sans-serif
+// Colors
 
-.app-body-link
-    color orange
+// WHITE GROUP
+$white = #fff
 
-.app-function--nav
-    color black
-    font-family 'Times New Roman', Times, serif
-    text-transform uppercase
+// BLACK GROUP
+$black = #000
 
-.app-function
-    color cyan
+// BLUE GROUP
+$blue-one = #224192
+
+// GRAY GROUP
+$gray-one = #dadada
+$gray-two = #dddddd
+$gray-three = rgb(83, 83, 83)
+$gray-four = rgb(181, 181, 181)
+$gray-five = rgb(237, 237, 237)
+$gray-six = #414141
+$gray-seven = #b5b5b5
+$gray-eight = #cacaca
+
+// YELLOW GROUP
+$yellow-one = #f6c100
+
+// RED GROUP
+$red-one = #c72212
+
+body
+  font-family 'Roboto', sans-serif
+  // background green
+
+.generic_wrapper
+  align-items center
+  display flex
+  margin-top 25px
+  // +below($tablet)
+  //   display none
+  // +below($phone)
+  //   display none
+
+.generic_help
+  set-font-size(14px)
+  color $gray-three
+  font-family $basic-font
+  font-weight 100
+  line-height 1
+  text-align left
+
+.generic_nav
+  display flex
+  input 
+    border-radius(3px)
+    &.is-valid
+        border 1px solid $red-one
+
+.generic_nav_item
+  background-color $gray-four
+  border none
+  border-radius 3px
+  display flex
+  height 33px
+  justify-content center
+  margin-left 5px
+  text-align center
+  width 36px
+  &:hover
+    background $gray-eight
+  &.is_print
+    &:before
+      width 20px
+      height 18px
+      background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NDQuOSIgaGVpZ2h0PSI0MTMuOCI+PHBhdGggZD0iTTE1My4yMzMtLjAyMmMtMjMuOCAwLTQzIDE5LjItNDMgNDN2MjUuMWgyMjQuNHYtMjUuMWguMWMwLTIzLjctMTkuMy00My00My00M2gtMTM4LjV6bS0xMDYuNiA4NC41Yy0yNS44IDAtNDYuNiAyMS00Ni42IDQ2Ljd2MTQ5LjZjMCAyNS44IDIwLjggNDYuNiA0Ni42IDQ2LjZoMjIuNXYtNzguMWMwLTEzLjUgMTEuMi0yNC42IDI0LjYtMjQuNmgyNTcuNWMxMy42IDAgMjQuNiAxMS4yIDI0LjYgMjQuNnY3OC4xaDIyLjVjMjUuOSAwIDQ2LjctMjAuOCA0Ni43LTQ2LjZ2LTE0OS42YzAtMjUuNy0yMC44LTQ2LjctNDYuNy00Ni43aC0zNTEuN3ptMjc0LjggNDYuM2gyNi40YzUuOSAwIDEwLjggNC44IDEwLjggMTAuOHYyNi4zYzAgNi00LjggMTAuOC0xMC44IDEwLjhoLTI2LjRjLTUuOSAwLTEwLjctNC44LTEwLjctMTAuOHYtMjYuM2MwLTYgNC44LTEwLjggMTAuNy0xMC44em0tMjI3LjcgMTEwLjRjLTQuNSAwLTguMiAzLjYtOC4yIDguMnYxNTYuMmMwIDQuNSAzLjYgOC4zIDguMiA4LjNoMjU3LjVjNC41IDAgOC4zLTMuNyA4LjMtOC4zdi0xNTYuMmMwLTQuNi0zLjctOC4yLTguMy04LjJoLTI1Ny41em04LjIgMTYuNGgyNDEuMXYxMzkuOGgtMjQxLjF2LTEzOS44em0zMS44IDI3LjNjLTQuNSAwLTguMyAzLjctOC4zIDguMiAwIDQuNSAzLjcgOC4yIDguMyA4LjJoMTc2LjVjNC41IDAgOC4yLTMuNiA4LjItOC4ycy0zLjYtOC4yLTguMi04LjJoLTE3Ni41em0wIDM1LjFjLTQuNSAwLTguMyAzLjctOC4zIDguMyAwIDQuNSAzLjcgOC4yIDguMyA4LjJoMTc2LjVjNC41IDAgOC4yLTMuNiA4LjItOC4ycy0zLjYtOC4zLTguMi04LjNoLTE3Ni41em0wIDM1LjNjLTQuNSAwLTguMyAzLjctOC4zIDguMyAwIDQuNSAzLjcgOC4yIDguMyA4LjJoMTc2LjVjNC41IDAgOC4yLTMuNiA4LjItOC4ycy0zLjYtOC4zLTguMi04LjNoLTE3Ni41eiIvPjwvc3ZnPg==')
+  &.is_phone
+    &:before
+      background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMDAiPjxwYXRoIGQ9Ik00MCAwSDEwQzQuNSAwIDAgNC41IDAgMTB2ODBjMCA1LjUgNC41IDEwIDEwIDEwaDMwYzUuNSAwIDEwLTQuNSAxMC0xMFYxMGMwLTUuNS00LjUtMTAtMTAtMTB6TTE2LjkgNi4yaDE2LjJjMSAwIDEuOS44IDEuOSAxLjkgMCAxLS44IDEuOS0xLjkgMS45SDE2LjljLTEgMC0xLjktLjgtMS45LTEuOSAwLTEgLjgtMS45IDEuOS0xLjl6TTI1IDk1Yy0yLjEgMC0zLjgtMS43LTMuOC0zLjggMC0yLjEgMS43LTMuOCAzLjgtMy44czMuOCAxLjcgMy44IDMuOGMwIDIuMS0xLjcgMy44LTMuOCAzLjh6bTIwLTEyLjVINVYxNWg0MHY2Ny41eiIvPjwvc3ZnPg==')
+      content ''
+      display block
+      height 20px
+      width 10px
+      background-size 100%
+  &.is_download
+    background-color $gray-six
+    color $white
+    display none
+    line-height 0
+    margin auto
+    padding 10px 15px
+    set-font-size(15px)
+    width auto
+    // +below($phone)
+    //   display block
+
+.is-icon
+  &:before
+    content ''
+    display block
+    background-size 100%
+    background-repeat no-repeat
+
+.is_top
+  margin-top 20px
+  // +below($phone)
+  //   margin-bottom 20px
+
+.is_bottom
+  margin-bottom 20px
+
+.generic_download
+  display none
+  // +below($phone)
+  //   display block
+  // +below($tablet)
+  //   display block
+
+.generic_nav_image
+  width 115px
+  height 33px
+
+.generic_captcha__refresh
+  cursor pointer
+  margin-top -3px
+  &:before
+    background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzOC4xIj48cGF0aCBkPSJNOCAxOEg1YzAtNy4yIDUuOC0xMyAxMy0xMyAzLjMgMCA2LjQgMS4zIDguNyAzLjNMMzAgNWMuNiAwIDEgLjQgMSAxdjhjMCAuNi0uNCAxLTEgMWgtOGMtLjYgMC0xLS40LTEtMWwzLjUtMy41QzIyLjggOC45IDIwLjUgOCAxOCA4IDEyLjUgOCA4IDEyLjUgOCAxOHptMTAgMTBjLTIuNSAwLTQuOC0uOS02LjUtMi41TDE1IDIyYzAtLjYtLjQtMS0xLTFINmMtLjYgMC0xIC40LTEgMXY4YzAgLjYuNCAxIDEgMWwzLjMtMy4zYzIuMyAyLjEgNS4zIDMuMyA4LjcgMy4zIDcuMiAwIDEzLTUuOCAxMy0xM2gtM2MwIDUuNS00LjUgMTAtMTAgMTB6Ii8+PC9zdmc+')
+    width 20px
+    height 17px
+
+.generic_confirm
+  align-items center
+  display flex
+  flex-direction row
+  margin 0 5px
+
+.generic_check
+  margin-right 5px
+  &:before
+    background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjYuNyIgaGVpZ2h0PSI0MjYuNyI+PHBhdGggZD0iTTIxMy4zIDBDOTUuNSAwIDAgOTUuNSAwIDIxMy4zczk1LjUgMjEzLjMgMjEzLjMgMjEzLjNjMTE3LjggMCAyMTMuMy05NS41IDIxMy4zLTIxMy4zUzMzMS4yIDAgMjEzLjMgMHptLTM5LjEgMzIyLjlMODAuMyAyMjlsMzEuMy0zMS4zIDYyLjYgNjIuNiAxNDAuOS0xNDAuOSAzMS4zIDMxLjMtMTcyLjIgMTcyLjJ6IiBmaWxsPSIjNmFjMjU5Ii8+PC9zdmc+')
+    width 17px
+    height 17px
+    width 17px
+.is__good
+  &:before
+    background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjYuNyIgaGVpZ2h0PSI0MjYuNyI+PHBhdGggZD0iTTIxMy4zIDBDOTUuNSAwIDAgOTUuNSAwIDIxMy4zczk1LjUgMjEzLjMgMjEzLjMgMjEzLjNjMTE3LjggMCAyMTMuMy05NS41IDIxMy4zLTIxMy4zUzMzMS4yIDAgMjEzLjMgMHptLTM5LjEgMzIyLjlMODAuMyAyMjlsMzEuMy0zMS4zIDYyLjYgNjIuNiAxNDAuOS0xNDAuOSAzMS4zIDMxLjMtMTcyLjIgMTcyLjJ6IiBmaWxsPSIjNmFjMjU5Ii8+PC9zdmc+')
+.is__bad
+  &:before
+    background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjYuNyIgaGVpZ2h0PSI0MjYuNyI+PHBhdGggZD0iTTIxMy4zIDBDOTUuNSAwIDAgOTUuNSAwIDIxMy4zczk1LjUgMjEzLjMgMjEzLjMgMjEzLjNjMTE3LjggMCAyMTMuMy05NS41IDIxMy4zLTIxMy4zUzMzMS4yIDAgMjEzLjMgMHpNMzI1IDMwMi41TDMwMi41IDMyNWwtODkuMi04OS4yLTg5LjEgODkuMi0yMi41LTIyLjUgODkuMi04OS4yLTg5LjItODkuMiAyMi41LTIyLjUgODkuMiA4OS4yIDg5LjItODkuMiAyMi41IDIyLjUtODkuMiA4OS4yIDg5LjEgODkuMnoiIGZpbGw9IiNlNTIxMWMiLz48L3N2Zz4=')
+
+.generic_summary
+  set-font-size(12px)
+  color $gray-eight
+  font-style italic
+
+.is_hide
+  display none
+
+.generic_input
+  border 1px solid $gray-eight
+  set-font-size(14px)
+  padding 5px 10px
+  margin 0 0 0 5px
+  &.is_error
+    border 1px solid #ff4141
+
+.generic_span_error
+  border-radius 3px
+  font-size 12px
+  font-size .75rem
+  background-color #c72212
+  color #fff
+  font-family 'geog-mdit','arial','sans-serif'
+  font-style italic
+  padding 2px 7px
+  position absolute
+  bottom 32px
+  right 0
+  &:before
+    border-color transparent #c72212 transparent transparent
+    border-style solid
+    border-width 0 10px 10px 0
+    content ''
+    height 0
+    position absolute
+    width 0
+    right 0
+    bottom -8px
+
+.generic_button_send
+  set-font-size(14px)
+  background $gray-six
+  border none
+  border-top-right-radius 3px
+  border-bottom-right-radius 3px
+  color $white
+  font-family Arial, Helvetica, sans-serif
+  margin-left -2px
+  padding-right 40px
+  padding-left 40px
+  height 33px
+
+.generic_input_content
+  display flex
+  position relative
+
+@media (max-width: 60em)
+  .generic_wrapper
+    display none
+  .generic_nav_item
+    &.is_download
+      display block
+  .is_top
+    margin-bottom 20px
+  .generic_download
+    display block
