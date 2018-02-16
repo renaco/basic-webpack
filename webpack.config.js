@@ -10,7 +10,6 @@ const CircularDendency = require('circular-dependency-plugin')
 const ExtraTextPlugin = require('extract-text-webpack-plugin')
 
 const pathBuild = path.resolve(__dirname, 'dist')
-// const template = require('pug-loader')
 
 const plugins = [
   new CheckerPlugin(),
@@ -27,13 +26,8 @@ const plugins = [
     filename: 'main.styl',
     disable: false,
     allChunks: true
-  }),
-  // template()
+  })
 ];
-
-// console.log('nodeenv', process.env.NODE_ENV);
-
-// console.log(template());
 
 if (process.env.NODE_ENV) {
   console.log('es produccion');
