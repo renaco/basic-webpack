@@ -1,5 +1,5 @@
 import { HTML } from './modules/const';
-document.getElementById('mensajeria').innerHTML = HTML;
+document.getElementById('mensajeria').innerHTML = HTML
 
 // import * as Email from './modules/email';
 import * as Sms from './modules/sms';
@@ -12,8 +12,7 @@ import { SmsButton } from './modules/SmsButton';
 // Email.sendEmail();
 // Sms.sendSMS(this);
 // SendSMS;
-let movilButton = new SmsButton("buttonSMS", "inputSMS","buttonSendSMS");
+let movilButton = new SmsButton('buttonSMS', 'inputSMS', 'buttonSendSMS');
 movilButton.init();
-// a.sendSMS();
 
-console.log('load js transspsissless');
+console.log('load js');

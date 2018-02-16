@@ -8,16 +8,16 @@ const webpack = require('webpack')
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const CircularDendency = require('circular-dependency-plugin')
 const ExtraTextPlugin = require('extract-text-webpack-plugin')
-const jeet = require('jeet')
-const rupture = require('rupture')
 
 const pathBuild = path.resolve(__dirname, 'dist')
+// const template = require('pug-loader')
+
 const plugins = [
   new CheckerPlugin(),
   new CircularDendency({
-      exclude: /a\.ts|node_modules/,
-      failOnError: true
-    }),
+    exclude: /a\.ts|node_modules/,
+    failOnError: true
+  }),
   new HtmlWebpackPluin({
     title: 'Basic Webpack',
     hash: true,
@@ -27,10 +27,13 @@ const plugins = [
     filename: 'main.styl',
     disable: false,
     allChunks: true
-  })
+  }),
+  // template()
 ];
 
-console.log('nodeenv', process.env.NODE_ENV);
+// console.log('nodeenv', process.env.NODE_ENV);
+
+// console.log(template());
 
 if (process.env.NODE_ENV) {
   console.log('es produccion');
@@ -40,12 +43,17 @@ if (process.env.NODE_ENV) {
 }
 
 const config = {
-  entry: ['./src/scripts/index.ts', './src/styles/main.styl'],
+  entry: [
+    './src/scripts/index.ts',
+    './src/styles/main.styl',
+  ],
   module: {
     rules: [
       {
         test: /\.pug$/,
-        use: 'pug-loader'
+        use: [
+          'pug-loader'
+        ]
       },
       {
         test: /\.ts?$/,
@@ -59,7 +67,6 @@ const config = {
             "css-loader",
             "stylus-loader"
           ]
-        // })
       }
     ]
   },

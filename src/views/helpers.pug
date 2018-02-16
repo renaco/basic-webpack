@@ -1,0 +1,27 @@
+div.box_center
+  section.generic_wrapper
+    //- form#helperForm(name='helperForm')
+    h5.generic_help
+      | Enviar instrucciones v&iacute;a:
+    ul.generic_nav
+      button.generic_nav_item.is_print.is-icon(type='button', onclick="[token]") 
+
+      input#inputSMSHidden(type='hidden', value='+51')
+      div.generic_input_content
+        input#inputSMS.generic_input.is_hide(maxlength='9' placeholder='Ingrese celular')
+        span#spanError.generic_span_error.is_hide
+          | Complete 9 digitos
+      .generic_confirm.is_hide
+        img#imageCaptcha.generic_nav_image.is_hide(src='https://empresa.pagoefectivo.pe/captcha/generar?793515')
+        span#refreshCaptcha.generic_captcha__refresh.is-icon.is_hide
+        input#inputCaptcha.generic_input.is_hide(maxlength="5" placeholder='Ingrese captcha')
+      button#buttonSMS.generic_nav_item.is_phone(type='button')
+      button#buttonSendSMS.generic_button_send.is_hide(type='button')
+        | Enviar SMS
+      #statusMessage.generic_confirm.is_hide
+        .generic_check.is__good.is-icon
+        .generic_check.is__bad.is-icon
+        .generic_summary
+          | Tu código de pago (CIP) fue enviado al 
+          span#summaryNumber.generic_summary__number 
+            | [Numero de Celular].
