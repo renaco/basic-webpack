@@ -1,19 +1,27 @@
+'use strict';
+
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const CircularDendency = require('circular-dependency-plugin');
 const ExtraTextPlugin = require('extract-text-webpack-plugin');
 const Uglify = require('uglifyjs-webpack-plugin');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 const plugins = [
   new CheckerPlugin(),
   new CircularDendency({
       exclude: /a\.ts|node_modules/,
       failOnError: true
-    })
-  ];
+    }),
+  new Dotenv({
+    path: '.env.local',
+    systemvars: true
+  }),
+];
 
 console.log('nodeenv', process.env.NODE_ENV);
+console.log('env', process.env);
 
 if (process.env.NODE_ENV) {
   console.log('es produccion');
@@ -59,13 +67,7 @@ const config = {
   resolve: {
     extensions: ['.ts', '.js']
   },
-  plugins: [
-    new ExtraTextPlugin({
-      filename: 'main.styl',
-      disable: false,
-      allChunks: true
-    })
-  ],
+  plugins: plugins,
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
