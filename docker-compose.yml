@@ -1,0 +1,10 @@
+version: '2'
+services: 
+  web:
+    image: webpack
+    ports:
+      - "8080:8080"
+    volumes: 
+      - ./:/
+    working_dir: /
+    command: yarn start
