@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "build:prod": "NODE_ENV=production webpack",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/renaco/basic-webpack.git"
@@ -27,8 +21,14 @@
     "source-map-loader": "^0.2.3",
     "typescript": "^2.7.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.0.0"
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build:prod": "NODE_ENV=production webpack",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
