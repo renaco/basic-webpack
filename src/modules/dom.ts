@@ -1,13 +1,11 @@
-export function DomClass () {
-  let getBody = document.querySelectorAll('body');
+export function DomClass() {
   let getNav = document.querySelectorAll('nav')[0];
   let getNavAnchor = document.querySelectorAll('nav a')[0];
 
-  const Element = document.createElement;
   const otherType: string = 'My String';
 
   document.body.addEventListener('click', () => {
-    console.log('otherTypeo', document.title);
+    console.log('otherType', document.title);
     document.title = otherType;
   });
 

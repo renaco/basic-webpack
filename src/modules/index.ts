@@ -1,4 +1,4 @@
-import { DomClass } from './dom';
+// import { DomClass } from './dom';
 
 export class myClass {
 
